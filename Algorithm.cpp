@@ -8,60 +8,10 @@
 #include <map>
 #include <cassert>
 
-
-#define MIN_ERROR 0.00000001
-
-// binary search
-double mysqrt_bs(int x)
-{
-	double begin = 1.0;
-	double end = double(x)/2.0 + 1;
-	for (;;)
-	{
-		double mid = (begin + end) / 2;
-		if (abs(mid * mid - x) <= MIN_ERROR)
-			return mid;
-		else
-		{
-			if (mid * mid > x)
-				end = mid;
-			else
-				begin = mid;
-		}
-	}
-}
-
-// newton   http://www.cnblogs.com/AnnieKim/archive/2013/04/18/3028607.html
-double mysqrt_newton(int x)   
-{  
-	if(x <= 0) return 0;
-
-	double res, lastres;
-	res = x;
-	for (;;)
-	{
-		lastres = res;
-		res = (res + x / res) / 2;
-		if (abs(lastres - res) <= MIN_ERROR)
-			break;
-	}
-	return res;  
-}
-
-// Carmack write it
-float InvSqrt(float x)
-{  
-	float xhalf = 0.5f * x;
-	int i = *(int*)&x;
-	i = 0x5f375a86 - (i>>1);
-	x = *(float*)&i;
-	x = x*(1.5f-xhalf*x*x);   
-	x = x*(1.5f-xhalf*x*x);   
-	x = x*(1.5f-xhalf*x*x);  
-
-	return 1/x;
-}  
-
+#include "vertex.h"
+#include "kmeans.h"
+//#include "bfs_dfs.h"
+#include "mysqrt.h"
 
 /*
 BFS()
@@ -79,16 +29,6 @@ BFS()
 }
 }
 */
-struct vertex
-{
-	int x;
-	int y;
-	int val;
-
-	vertex(): x(0), y(0), val(0) {}
-	vertex(int xi, int yi, int v): x(xi), y(yi), val(v) {}
-};
-
 
 bool bfs(int width, int height, const std::vector<vertex>& vec, std::vector<std::pair<int, int> >& path, int target, int& x, int& y)
 {
@@ -215,19 +155,15 @@ void dfs(int width, int height, const vertex& v, const std::vector<vertex>& vec,
 		dfs(width, height, vertexTmp[i], vec, mark, path, target, x, y, found);
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 	// test sqrt
-	double ret = mysqrt_bs(5);
-	std::cout<<ret<<std::endl;
-
-	double ret2 = mysqrt_newton(5);
-	std::cout<<ret2<<std::endl;
-
-	float ret3 = InvSqrt(5);
-	std::cout<<ret3<<std::endl;
-
+	Mysqrt mq(5);
+	std::cout<<mq.mysqrt_bs()<<std::endl;
+	std::cout<<mq.mysqrt_newton()<<std::endl;
+	std::cout<<mq.InvSqrt()<<std::endl;
 
 	// test bfs & dfs
 	int w = 10;
@@ -290,6 +226,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		std::cout<<"("<<path[i].first<<" , "<<path[i].second<<")" <<" --> "<<std::endl;
 	}
+
+	// testing k-means
+	std::cout<<std::endl;
+	Kmeans km(6, 256);
+	km.run_k_means();
 
 	system("pause");
 	return 0;
