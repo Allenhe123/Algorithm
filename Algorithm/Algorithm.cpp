@@ -12,6 +12,7 @@
 #include "mysqrt.h"
 #include "qsort.h"
 #include "topk.h"
+#include "heap.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -93,13 +94,15 @@ int _tmain(int argc, _TCHAR* argv[])
 	//Kmeans km(6, 256);
 	//km.run_k_means();
 
-	int a[10] = {5, 6, 0, 9, 7, 4, 1, 6, 3, 4};
-	quickSort(a, 0, 9);
-	for (int i=0; i<10; i++)
-	{
-		std::cout << a[i] << " ";
-	}
-	std::cout << std::endl;
+	//int a[10] = {5, 6, 0, 9, 7, 4, 1, 6, 3, 4};
+	//quickSort(a, 0, 9);
+	//for (int i=0; i<10; i++)
+	//{
+	//	std::cout << a[i] << " ";
+	//}
+	//std::cout << std::endl;
+
+	heap();
 
 	system("pause");
 	return 0;
