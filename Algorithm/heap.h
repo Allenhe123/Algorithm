@@ -2,7 +2,7 @@
 
 #include <queue>
 #include <iostream>
-#include <functional>
+#include <functional>  //STL 定义运算函数（代替运算符）
 using namespace std;
 
 /*
