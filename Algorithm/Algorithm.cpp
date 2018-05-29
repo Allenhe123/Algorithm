@@ -102,7 +102,17 @@ int _tmain(int argc, _TCHAR* argv[])
 	//}
 	//std::cout << std::endl;
 
-	heap();
+	//heap();
+
+	int a[10] = { 5, 6, 0, 9, 7, 4, 1, 6, 3, 4 };
+	int k = 7;
+	BFPTR(a, 0, 9, k);
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << a[i] << " ";
+	}
+	std::cout << std::endl;
+
 
 	system("pause");
 	return 0;
