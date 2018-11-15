@@ -1,0 +1,24 @@
+﻿  Algorithm.cpp
+e:\allenproject\algorithm\algorithm\kmeans.h(108): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+e:\allenproject\algorithm\algorithm\heap.h(32): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\heap.h(52): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\bytedance1.h(18): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+e:\allenproject\algorithm\algorithm\bytedance1.h(46): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\bytedance1.h(81): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\stock.h(16): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+e:\allenproject\algorithm\algorithm\stock.h(37): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\stock.h(43): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\leetcode.h(15): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\leetcode.h(18): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\leetcode.h(92): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\leetcode.h(105): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\leetcode.h(199): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\leetcode.h(205): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\leetcode.h(217): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\lru.h(66): warning C4018: “<”: 有符号/无符号不匹配
+e:\allenproject\algorithm\algorithm\binarysearch.h(44): warning C4715: “binary_search_recursive”: 不是所有的控件路径都返回值
+e:\allenproject\algorithm\algorithm\binarysearch.h(90): warning C4715: “binary_serach_unordered_impl”: 不是所有的控件路径都返回值
+e:\allenproject\algorithm\algorithm\binarysearch.h(137): warning C4715: “unordered_search_select_k_small_impl”: 不是所有的控件路径都返回值
+e:\allenproject\algorithm\algorithm\binarysearch.h(161): warning C4715: “unordered_search_select_k_big_impl”: 不是所有的控件路径都返回值
+e:\allenproject\algorithm\algorithm\leetcode.h(308): warning C4715: “Solution::findHeight”: 不是所有的控件路径都返回值
+  Algorithm.vcxproj -> E:\AllenProject\Algorithm\Debug\Algorithm.exe

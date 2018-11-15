@@ -13,6 +13,12 @@
 #include "qsort.h"
 #include "topk.h"
 #include "heap.h"
+#include "bytedance1.h"
+#include "stock.h"
+#include "binarySearch.h"
+#include "bytedance2.h"
+#include "leetcode.h"
+#include "LRU.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -104,15 +110,102 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//heap();
 
-	int a[10] = { 5, 6, 0, 9, 7, 4, 1, 6, 3, 4 };
-	int k = 7;
-	BFPTR(a, 0, 9, k);
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << a[i] << " ";
-	}
-	std::cout << std::endl;
+	//int a[10] = { 5, 6, 0, 9, 7, 4, 1, 6, 3, 4 };
+	//int k = 7;
+	//BFPTR(a, 0, 9, k);
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	std::cout << a[i] << " ";
+	//}
+	//std::cout << std::endl;
 
+	//int a = 0xFFFFFFFFUL;
+	//std::cout << a << std::endl;
+
+	//char* p = new char[0];
+	//std::cout << p << std::endl;
+	//std::cout << *p << std::endl;
+
+	//unsigned int a = 10;
+	//unsigned int b = 20;
+	//int c = a - b;
+	//std::cout << c << std::endl;
+	
+
+	//bytedance1_normal();
+	//bytedance1_priority_stack();
+
+	//int cnt = 0;
+	//int x = 1113412145;
+	//while (x > 0)
+	//{
+	//	if (x % 10 == 1)
+	//		cnt++;
+	//	x = x / 10;
+	//}
+
+	//std::cout << cnt << std::endl;
+	
+	//leetcode_stock();
+
+	//binary_search_ordered();
+
+//binary_search_unordered();
+
+//select_k();
+
+//bytedance2();
+
+
+Solution sln;
+
+//std::vector<int> vec{ 3, 1, 4, 1, 5 };
+//sln.findPairs(vec, 2);
+
+//std::vector<int> vec{ 1,3,6,4,2,7};
+//std::vector<std::vector<int>> retV = sln.findList_impl1(vec, 7);
+//
+//for (auto& v : retV)
+//{
+//	for (auto i : v)
+//	{
+//		std::cout << i << " ";
+//	}
+//	std::cout << endl;
+//}
+
+//const char* s = "abcdefg";
+//const char* sub = "def";
+//
+//std::cout << sln.strstr_impl(s, sub) << std::endl;
+
+//std::vector<int> nums{1,2,3};
+//sln.permute(nums);
+
+//LRUCache obj(2);
+//obj.put(2, 1);
+//obj.put(2, 2);
+//std::cout << obj.get(1) << std::endl;
+//obj.put(3, 3);
+//std::cout << obj.get(2) << std::endl;
+//obj.put(4, 4);
+//std::cout << obj.get(1) << std::endl;
+//std::cout << obj.get(3) << std::endl;
+//std::cout << obj.get(4) << std::endl;
+
+//std::vector<std::vector<int>> nums;
+//std::vector<int> v1{1,2,3,4,5};
+//std::vector<int> v2{ 3,4,5,6,9 };
+//std::vector<int> v3{ 1,2,3,4,5, 10, 9};
+//nums.emplace_back(v1);
+//nums.emplace_back(v2);
+//nums.emplace_back(v3);
+//int sum = sln.findMaxSumNList(nums, 3);
+//std::cout << sum << std::endl;
+
+std::vector<float> vec{1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,8.0,9.0,4.0,6.0,8.0,9.0,11.0,23.0,45.0,32.0,2.0,11.0,6.0,7.0,15.0,16.0,6.0,18.0,19.0,11.0,10.0};
+float h = sln.findHeight(vec, 30.0, 0.0, 45.0);
+std::cout << h << std::endl;
 
 	system("pause");
 	return 0;

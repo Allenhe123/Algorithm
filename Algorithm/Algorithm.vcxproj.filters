@@ -51,6 +51,24 @@
     <ClInclude Include="kalman.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="bytedance1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stock.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binarySearch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bytedance2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LRU.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
