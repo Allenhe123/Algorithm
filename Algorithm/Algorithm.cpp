@@ -20,6 +20,7 @@
 #include "leetcode.h"
 #include "LRU.h"
 #include "huffmanTree.h"
+#include "bytedance3.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -235,13 +236,17 @@ std::vector<Solution::Point> vec;
 //std::cout << a << std::endl;
 //std::cout << sln.divideToN(-1, -999, 20) << std::endl;
 
-int w[5] = { 2, 8, 7, 6, 5 };
-int n = 5;
-HuffmanTree htree;
-HuffmanCode htable;
-CreateHuffmanTree(&htree, w, n);
-HuffmanCoding(htree, &htable, n);
-PrintHuffmanCode(htable, w, n);
+//int w[5] = { 2, 8, 7, 6, 5 };
+//int n = 5;
+//HuffmanTree htree;
+//HuffmanCode htable;
+//CreateHuffmanTree(&htree, w, n);
+//HuffmanCoding(htree, &htable, n);
+//PrintHuffmanCode(htable, w, n);
+
+std::vector<int> vv{1,3,4,6,7,8};
+//std::vector<int> vv{ 1,3,6 };
+std::cout<< jump(6, 4, 2, vv)<<std::endl;
 
 
 	system("pause");

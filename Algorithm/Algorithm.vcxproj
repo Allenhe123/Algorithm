@@ -152,6 +152,7 @@
     <ClInclude Include="binarySearch.h" />
     <ClInclude Include="bytedance1.h" />
     <ClInclude Include="bytedance2.h" />
+    <ClInclude Include="bytedance3.h" />
     <ClInclude Include="heap.h" />
     <ClInclude Include="huffmanTree.h" />
     <ClInclude Include="kalman.h" />
