@@ -203,9 +203,42 @@ Solution sln;
 //int sum = sln.findMaxSumNList(nums, 3);
 //std::cout << sum << std::endl;
 
-std::vector<float> vec{1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,8.0,9.0,4.0,6.0,8.0,9.0,11.0,23.0,45.0,32.0,2.0,11.0,6.0,7.0,15.0,16.0,6.0,18.0,19.0,11.0,10.0};
-float h = sln.findHeight(vec, 30.0, 0.0, 45.0);
-std::cout << h << std::endl;
+//std::vector<float> vec{1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,8.0,9.0,4.0,6.0,8.0,9.0,11.0,23.0,45.0,32.0,2.0,11.0,6.0,7.0,15.0,16.0,6.0,18.0,19.0,11.0,10.0};
+//float h = sln.findHeight(vec, 30.0, 0.0, 45.0);
+//std::cout << h << std::endl;
+
+Solution::Point pt0(0, 0);
+Solution::Point pt1(1, 1);
+Solution::Point pt2(3, 2);
+Solution::Point pt3(5, 3);
+Solution::Point pt4(4, 1);
+Solution::Point pt5(2, 3);
+Solution::Point pt6(1, 4);
+Solution::Point pt7(1, 0);
+
+Solution::Point pt8(94911151, 94911150);
+Solution::Point pt9(94911152, 94911151);
+
+std::vector<Solution::Point> vec;
+vec.push_back(pt0);
+//vec.push_back(pt1);
+//vec.push_back(pt2);
+//vec.push_back(pt3);
+//vec.push_back(pt4);
+//vec.push_back(pt5);
+//vec.push_back(pt6);
+//vec.push_back(pt7);
+
+vec.push_back(pt8);
+vec.push_back(pt9);
+
+
+//
+//int a = sln.maxPoints(vec);
+//std::cout << a << std::endl;
+
+std::cout << sln.divideToN(-1, -999, 20) << std::endl;
+
 
 	system("pause");
 	return 0;

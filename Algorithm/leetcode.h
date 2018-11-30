@@ -1,6 +1,9 @@
 #pragma once
 #include <vector>
 #include <map>
+#include <string>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -44,6 +47,32 @@ public:
 	{
 
 
+	}
+
+	// 精确到小数点后n位
+	std::string divideToN(int dividend, int divisor, int n)
+	{
+		bool diffSign = ((dividend ^divisor) >> 31);
+
+		std::ostringstream ostreamRet;
+		if (diffSign)
+			ostreamRet << "-";
+
+		dividend = dividend < 0 ? dividend * (-1) : dividend;
+		divisor = divisor < 0 ? divisor * (-1) : divisor;
+
+		int m = dividend;
+		for (int i = 0; i < n + 1; i++)
+		{
+			int v = m / divisor;
+			m = m % divisor;
+			m *= 10;
+			ostreamRet << v;
+			if (i == 0)
+				ostreamRet << ".";
+		}
+
+		return ostreamRet.str();
 	}
 
 
@@ -319,6 +348,148 @@ public:
 
 	}
 
+	/*
+	给定一个n*m的矩阵A，A的每个元素Aij是16进制数。
+	寻找一条从左上角到右下角的路径，每次只能向右或者向下移动，使得路径上所有数字之积在16进制下的后缀0最少。
+	输入描述：
+	第一行 n， m    n>=2, m<=1000
+	接下来的n行，每行m个16进制数  0 <= Aij <= 10^9
 
+	输出描述：
+	第一行 最少后缀0的个数（十进制）
+	第二行 路径方案。左上角开始 > 表示向右，v表示向下，如果由多种方案，输出字典序最小的方案。>的字典序小于v。
+
+	示例：
+	3 3
+	3 2 8
+	c 8 8
+	2 a f
+
+	输出 
+	1
+	>>vv
+
+	思路：贪心算法+深度优先遍历+回溯
+	
+	*/
+
+	int findPath(const std::vector<std::vector<int>>& input, std::vector<std::string>& path)
+	{
+
+	}
+
+
+	/*
+	给 n 个正整数 a_1,…,a_n， 将 n 个数顺序排成一列后分割成 m 段，每一段的分数被记为这段内所有数的和，该次分割的分数被记为 m 段分数的最大值。问所有分割方案中分割分数的最小值是多少？
+
+	输入描述：
+	第一行依次给出正整数 n, m。
+	第二行依次给出n 个正整数 a1,...,an
+
+	示例：
+
+	输入
+	5 3
+	1 4 2 3 5
+	输出
+	5
+
+	说明
+	分割成 1 4 | 2 3 | 5 的时候三段的分数都为 5，得到分割分数的最小值。
+
+	备注：
+	对于所有的数据，有 m <= n <= 100000,0 <= ai
+
+	思路
+
+	将 n 个数划分为 n 段，分割分数即为 n 个正整数的最大值；
+	将 n 个数划分为 1 段，分割分数即为 n 个正整数的和；
+	若分为 m 段，则分割分数一定介于最大值与和之间。因此采用二分查找，每次取一个值对序列进行划分，若能划分出
+	m 段，使得每段的和都小于这个数值，则满足划分，反之不满足，直至找到一个最小的满足划分的值为止。
+	*/
+
+
+
+	// leetcode 149 给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。
+	// Definition for a point.
+	 struct Point {
+	     int x;
+	     int y;
+	     Point() : x(0), y(0) {}
+	     Point(int a, int b) : x(a), y(b) {}
+	 };
+	
+	 struct Slop
+	 {
+		 std::string slop;
+		 int num;
+
+		 Slop() : slop("0.0"), num(0) {}
+		 Slop(const std::string& x, int y) : slop(x), num(y) {}
+	 };
+
+
+	 int maxPoints(vector<Point>& points)
+	 {
+		 if (points.empty()) return 0;
+
+		 int maxnum = 0;
+		 for (int i = 0; i < points.size(); i++)
+		 {
+			 int samenum = 0;
+			 Point& p = points[i];
+			 std::vector<Slop> tempVec;
+
+			 for (int j = 0; j < points.size(); j++)
+			 {
+				 Point& q = points[j];
+
+				 std::string s = "888888888.0";
+				 if (p.x == q.x && p.y == q.y)
+					 samenum++;
+				 else if (p.x == q.x && p.y != q.y)
+					 s = "999999999.0";
+				 else
+					 s = divideToN((q.y - p.y), (q.x - p.x), 20);
+
+				 bool found = false;
+				 int idx = 0;
+				 for (idx = 0; idx < tempVec.size(); idx++)
+				 {
+					 if (s == tempVec[idx].slop)
+					 {
+						 found = true;
+						 break;
+					 }
+				 }
+
+				 if (found)
+				 {
+					 tempVec[idx].num++;
+				 }
+				 else
+				 {
+					 if (s == "888888888.0")
+						 ;
+					 else
+						tempVec.emplace_back(Slop(s, 1));
+				 }
+			 }
+
+			 int tempMax = 0;
+			 for (auto sl : tempVec)
+			 {
+				 if (sl.num > tempMax)
+				 {
+					 tempMax = sl.num;
+				 }
+			 }
+			 tempMax += samenum;
+
+			 maxnum = maxnum < tempMax ? tempMax : maxnum;
+
+		 }
+		 return maxnum;
+	 }
 
 };
