@@ -19,6 +19,7 @@
 #include "bytedance2.h"
 #include "leetcode.h"
 #include "LRU.h"
+#include "huffmanTree.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -207,20 +208,19 @@ Solution sln;
 //float h = sln.findHeight(vec, 30.0, 0.0, 45.0);
 //std::cout << h << std::endl;
 
-Solution::Point pt0(0, 0);
-Solution::Point pt1(1, 1);
-Solution::Point pt2(3, 2);
-Solution::Point pt3(5, 3);
-Solution::Point pt4(4, 1);
-Solution::Point pt5(2, 3);
-Solution::Point pt6(1, 4);
-Solution::Point pt7(1, 0);
-
-Solution::Point pt8(94911151, 94911150);
-Solution::Point pt9(94911152, 94911151);
+//Solution::Point pt0(0, 0);
+//Solution::Point pt1(1, 1);
+//Solution::Point pt2(3, 2);
+//Solution::Point pt3(5, 3);
+//Solution::Point pt4(4, 1);
+//Solution::Point pt5(2, 3);
+//Solution::Point pt6(1, 4);
+//Solution::Point pt7(1, 0);
+//Solution::Point pt8(94911151, 94911150);
+//Solution::Point pt9(94911152, 94911151);
 
 std::vector<Solution::Point> vec;
-vec.push_back(pt0);
+//vec.push_back(pt0);
 //vec.push_back(pt1);
 //vec.push_back(pt2);
 //vec.push_back(pt3);
@@ -228,16 +228,20 @@ vec.push_back(pt0);
 //vec.push_back(pt5);
 //vec.push_back(pt6);
 //vec.push_back(pt7);
+//vec.push_back(pt8);
+//vec.push_back(pt9);
 
-vec.push_back(pt8);
-vec.push_back(pt9);
-
-
-//
 //int a = sln.maxPoints(vec);
 //std::cout << a << std::endl;
+//std::cout << sln.divideToN(-1, -999, 20) << std::endl;
 
-std::cout << sln.divideToN(-1, -999, 20) << std::endl;
+int w[5] = { 2, 8, 7, 6, 5 };
+int n = 5;
+HuffmanTree htree;
+HuffmanCode htable;
+CreateHuffmanTree(&htree, w, n);
+HuffmanCoding(htree, &htable, n);
+PrintHuffmanCode(htable, w, n);
 
 
 	system("pause");
