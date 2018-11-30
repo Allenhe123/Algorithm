@@ -153,6 +153,7 @@
     <ClInclude Include="bytedance1.h" />
     <ClInclude Include="bytedance2.h" />
     <ClInclude Include="heap.h" />
+    <ClInclude Include="huffmanTree.h" />
     <ClInclude Include="kalman.h" />
     <ClInclude Include="kmeans.h" />
     <ClInclude Include="leetcode.h" />
