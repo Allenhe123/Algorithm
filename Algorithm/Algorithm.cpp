@@ -13,6 +13,7 @@
 #include "qsort.h"
 #include "topk.h"
 #include "heap.h"
+#include "huawei.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -104,15 +105,31 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//heap();
 
-	int a[10] = { 5, 6, 0, 9, 7, 4, 1, 6, 3, 4 };
-	int k = 7;
-	BFPTR(a, 0, 9, k);
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << a[i] << " ";
-	}
-	std::cout << std::endl;
+	//int a[10] = { 5, 6, 0, 9, 7, 4, 1, 6, 3, 4 };
+	//int k = 7;
+	//BFPTR(a, 0, 9, k);
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	std::cout << a[i] << " ";
+	//}
+	//std::cout << std::endl;
 
+
+	//std::vector<int> v{ 3, 10, 81, 0 };
+	//for (auto i : v)
+	//{
+	//	std::cout << func1(i) << std::endl;
+	//}
+
+	//std::vector<int> v{1,2,3,3,4,5,2,6,90,56,78,56,4,5,6};
+	//unique_sort(v);
+	//for (auto i : v)
+	//{
+	//	std::cout << i << std::endl;
+	//}
+
+	std::string str = transfer("0x12345ff");
+	std::cout << str << std::endl;
 
 	system("pause");
 	return 0;
