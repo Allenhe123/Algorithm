@@ -111,3 +111,60 @@ std::string transfer(char* pinput)
 
 	return std::to_string(number);
 }
+
+
+// atoi 实现
+int myatoi(const char* str)
+{
+	int negative = 0;
+	char c = 0;
+	/*计算结果存储*/
+	long long ret = 0;
+	if (NULL == str)
+	{
+		return 0;
+	}
+	/*跳过开始的空格*/
+	while (' ' == (*str))
+		str++;
+	/*跳过空格之后，到达了字符串结尾，则退出*/
+	if (0 == *str)
+		return 0;
+	/*负数*/
+	if (*str == '-')
+	{
+		negative = 1;
+		str++;
+	}
+	/*正数*/
+	else if (*str == '+')
+	{
+		negative = 0;
+		str++;
+	}
+	/*正数*/
+	else if (isdigit(*str))
+	{
+		negative = 0;
+	}
+	/*如果不是以上内容，则直接退出*/
+	else
+	{
+		return 0;
+	}
+	while (isdigit(*str))
+	{
+		/*计算结果*/
+		ret = ret * 10 + *str - '0';
+
+		/*如果发现结果大于INT_MAX或者小于INT_MIN，则溢出，返回最值*/
+		if (ret > (negative ? -(long long)INT_MIN : INT_MAX))
+		{
+			/*溢出，返回最大值*/
+			return negative ? INT_MIN : INT_MAX;
+		}
+		str++;
+	}
+	/*根据正负号返回正确的结果*/
+	return negative ? -ret : ret;
+}
