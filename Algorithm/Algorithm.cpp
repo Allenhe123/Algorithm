@@ -13,6 +13,7 @@
 #include "bytedance1.h"
 #include "huawei.h"
 #include "mylist.h"
+#include "leetcode.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -201,11 +202,23 @@ int _tmain(int argc, _TCHAR* argv[])
 	//std::string str = transfer("0x12345ff");
 	//std::cout << str << std::endl;
 
-MyList lst;
-lst.init(std::vector<int> {1, 4, 7, 9, 2, 4, 10, 8, 3, 5, 66, 4});
-std::cout << lst << std::endl;
-lst.reverse();
-std::cout << lst << std::endl;
+	//MyList lst;
+	//lst.init(std::vector<int> {1, 4, 7, 9, 2, 4, 10, 8, 3, 5, 66, 4});
+	//std::cout << lst << std::endl;
+	//lst.reverse();
+	//std::cout << lst << std::endl;
+	
+	Solution sln;
+	std::vector<int> nums = { -1, 0, 1, 2, -1, -4 };
+	auto v = sln.threeSum(nums);
+	for (auto& vv : v)
+	{
+		for (auto i : vv)
+		{
+			std::cout << i << " ";
+		}
+		std::cout << std::endl;
+	}
 
 
 	system("pause");

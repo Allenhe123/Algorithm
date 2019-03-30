@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -490,6 +491,57 @@ public:
 
 		 }
 		 return maxnum;
+	 }
+
+
+
+	 /*
+	 给定一个包含n个整数的数组nums，判断nums中是否存在三个元素a，b，c，使得a+b+c=0。
+	 找出所有满足条件且不重复的三元组。
+	 例如：nums = {-1，0，1，2，-1，-4}
+	 满足要求的三元组集合为：
+	 [-1,0,1]
+	 [-1,-1,2]
+	 思路：对原数组进行排序，然后开始遍历排序后的数组，这里注意不是遍历到最后一个停止，而是到倒数第三个就可以了。
+	 这里我们可以先做个剪枝优化，就是当遍历到正数的时候就break，因为数组现在是有序的，如果第一个要fix的数是正数了，那么后面的数字
+	 都是正数，永远不会出现和为0的情况。然后我们还要加上重复就跳过的处理，处理方法是从第二个数开始，如果和前面的数字相等就跳过，因为我们不想把相同的
+	 数字fix两次。对于遍历到的数，用0减去这个fix到的数得到target，然后只需要再找到两个数之和等于target即可。
+	 我们用两个指针分别指向fix数字之后开始的数组的首尾两个数，如果两个数之和正好等于target，则将这2个数和fix的数一起放入结果中。
+	 然后就是跳过重复数字的步骤了，两个指针都需要检测重复数字。如果两数之和小于target，则我们将左边的指针右移一位，使得指向的数字大一些。同理，若两数
+	 之和大于target，则我们将右边那个指针左移一位，使得指向的数字减小一些。
+	 */
+	 std::vector<std::vector<int>> threeSum(std::vector<int>& nums)
+	 {
+		 std::vector<std::vector<int>> res;
+		 std::sort(nums.begin(), nums.end());
+		 if (nums.empty() || nums.back() < 0 || nums.front() > 0) return {};
+		 for (int k = 0; k < nums.size(); k++)
+		 {
+			 if (nums[k] > 0) break;
+			 if (k > 0 && nums[k] == nums[k - 1]) continue;
+			 int target = 0 - nums[k];
+			 int i = k + 1;
+			 int j = nums.size() - 1;
+			 while (i < j)
+			 {
+				 if (nums[i] + nums[j] == target)
+				 {
+					 res.push_back({ nums[k], nums[i], nums[j] });
+					 i++;
+					 while (i < j && nums[i] == nums[i + 1]) i++;
+					 while (i < j && nums[j] == nums[j - 1]) j--;
+				 }
+				 else if (nums[i] + nums[j] < target)
+				 {
+					 i++;
+				 }
+				 else
+				 {
+					 j--;
+				 }
+			 }
+		 }
+		 return res;
 	 }
 
 };
